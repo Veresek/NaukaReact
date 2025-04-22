@@ -1,17 +1,13 @@
 @import 'tailwindcss';
 @theme {
 	--site-background: hsl(0, 0%, 8%);
+	--color-search-background: hsl(0, 0%, 14%);
 }
 @layer {
 	body {
 		background-color: var(--site-background);
 	}
 }
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+
 body {
-	background-color: hsl(0, 0%, 8%);
 }
