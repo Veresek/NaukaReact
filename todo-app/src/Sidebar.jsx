@@ -1,37 +1,77 @@
 import { useState } from 'react';
 import SearchBtn from './assets/search.svg';
+import PlusBtn from './assets/plus.svg';
 import './App.css';
 
-function CategoryBtn({ catName }) {
-	return <button className='text-white block'>{catName}</button>;
+function AddBtn({ catHeader }) {
+	if (catHeader === 'Kategorie') {
+		console.log(catHeader);
+		return (
+			<>
+				<img
+					src={PlusBtn}
+					alt='add category button'
+					className='w-[15px] h-[15px]'
+				/>
+			</>
+		);
+	}
 }
-function Categories({ catNames }) {
+
+function CategoryBtn({ catName }) {
 	return (
-		<>
+		<div className='flex h-10'>
+			<input
+				type='checkbox'
+				className='m-[11px] w-4.5 accent-checked-checkbox'
+			/>
+			<button className='text-white block text-sm bg-none'>{catName}</button>;
+		</div>
+	);
+}
+function Categories({ catNames, catHeader }) {
+	return (
+		<div className='mt-8'>
+			<div className='flex justify-between w-[216px] items-center pb-4'>
+				<p className='text-white text-xl ml-3'>{catHeader}</p>
+				<AddBtn catHeader={catHeader} />
+			</div>
 			{catNames.map((catName, index) => {
 				return <CategoryBtn key={index} catName={catName} />;
 			})}
-		</>
+		</div>
 	);
 }
 export default function Sidebar() {
-	const [catNames, setCatNames] = useState(['Szkoła', 'Praca', 'Dom']);
+	const [catNames, setCatNames] = useState([
+		'Wszystkie',
+		'Szkoła',
+		'Praca',
+		'Zadania',
+		'Zadania',
+	]);
+	const StatusNames = ['Wszystkie', 'Do zrobienia', 'Wykonane'];
 	return (
-		<div className='px-3 pt-8 pb-5'>
-			<div className='relative '>
-				<input
-					type='text'
-					placeholder='Szukaj'
-					className='block bg-search-background placeholder-white/60 text-white px-2 py-4 pl-10 text-[16px] rounded-xl'
-				/>
-				<img
-					src={SearchBtn}
-					alt='search icon'
-					className='absolute bottom-4.5 left-[12px]'
-				/>
+		<nav className='px-3 pt-8 pb-5 w-[240px] relative h-[900px]'>
+			<div>
+				<div className='relative '>
+					<input
+						type='text'
+						placeholder='Szukaj'
+						className='block bg-search-background placeholder-white/60 text-white pr-2 py-4 pl-10 text-[16px] rounded-xl w-[216px]'
+					/>
+					<img
+						src={SearchBtn}
+						alt='search icon'
+						className='absolute bottom-4.5 left-[12px]'
+					/>
+				</div>
+				<Categories catNames={catNames} catHeader='Kategorie' />
+				<Categories catNames={StatusNames} catHeader='Status' />
 			</div>
-			<p className='text-white text-xl'>Kategorie</p>
-			<Categories catNames={catNames} />
-		</div>
+			<button className='bg-none text-white border border-button-border rounded-xl absolute bottom-5 py-4 px-6'>
+				Wyczyść filtry
+			</button>
+		</nav>
 	);
 }
