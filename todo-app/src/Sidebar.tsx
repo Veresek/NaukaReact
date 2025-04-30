@@ -3,7 +3,7 @@ import SearchBtn from './assets/search.svg';
 import PlusBtn from './assets/plus.svg';
 import './App.css';
 
-function AddBtn({ catHeader }) {
+function AddBtn({ catHeader }: { catHeader: string }) {
 	if (catHeader === 'Kategorie') {
 		console.log(catHeader);
 		return (
@@ -18,7 +18,7 @@ function AddBtn({ catHeader }) {
 	}
 }
 
-function CategoryBtn({ catName }) {
+function CategoryBtn({ catName }: { catName: string }) {
 	return (
 		<div className='flex h-10'>
 			<input
@@ -29,7 +29,13 @@ function CategoryBtn({ catName }) {
 		</div>
 	);
 }
-function Categories({ catNames, catHeader }) {
+function Categories({
+	catNames,
+	catHeader,
+}: {
+	catNames: string[];
+	catHeader: string;
+}) {
 	return (
 		<div className='mt-8'>
 			<div className='flex justify-between w-[216px] items-center pb-4'>
