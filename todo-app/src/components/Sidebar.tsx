@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import SearchBtn from './assets/search.svg';
-import PlusBtn from './assets/plus.svg';
-import './App.css';
+import SearchBtn from '../assets/search.svg';
+import PlusBtn from '../assets/plus.svg';
+import '../App.css';
 
 function AddBtn({ catHeader }: { catHeader: string }) {
 	if (catHeader === 'Kategorie') {
-		console.log(catHeader);
 		return (
 			<>
 				<img
