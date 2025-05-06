@@ -14,6 +14,7 @@
 	--color-completed-task-background: #1a1a1a;
 	--color-task-border: #353535;
 	--color-task-category-border: #383838;
+	--color-creating-task-background: #191919;
 }
 @layer {
 	* {
@@ -25,6 +26,7 @@
 	}
 	main {
 		min-height: 900px;
+		height: 100vh;
 		width: 100vw;
 	}
 }

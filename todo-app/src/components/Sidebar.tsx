@@ -10,7 +10,7 @@ function AddBtn({ catHeader }: { catHeader: string }) {
 				<img
 					src={PlusBtn}
 					alt='add category button'
-					className='w-[15px] h-[15px]'
+					className='w-[15px] h-[15px] cursor-pointer accent-checked-checkbox'
 				/>
 			</>
 		);
@@ -20,11 +20,8 @@ function AddBtn({ catHeader }: { catHeader: string }) {
 function CategoryBtn({ catName }: { catName: string }) {
 	return (
 		<div className='flex h-10'>
-			<input
-				type='checkbox'
-				className='m-[11px] w-4.5 accent-checked-checkbox'
-			/>
-			<button className='text-white block text-sm bg-none'>{catName}</button>;
+			<input type='checkbox' className='m-[11px] w-4.5' />
+			<button className='text-white block text-sm bg-none'>{catName}</button>
 		</div>
 	);
 }
@@ -57,7 +54,7 @@ export default function Sidebar() {
 	]);
 	const StatusNames = ['Wszystkie', 'Do zrobienia', 'Wykonane'];
 	return (
-		<nav className='px-3 pt-8 pb-5 w-[240px] relative h-[900px]'>
+		<nav className='px-3 pt-8 pb-5 w-[240px] relative h-screen'>
 			<div>
 				<div className='relative '>
 					<input
@@ -68,13 +65,13 @@ export default function Sidebar() {
 					<img
 						src={SearchBtn}
 						alt='search icon'
-						className='absolute bottom-4.5 left-[12px]'
+						className='absolute bottom-4.5 left-[12px] cursor-pointer'
 					/>
 				</div>
 				<Categories catNames={catNames} catHeader='Kategorie' />
 				<Categories catNames={StatusNames} catHeader='Status' />
 			</div>
-			<button className='bg-none text-white border border-button-border rounded-xl absolute bottom-5 py-4 px-6'>
+			<button className='bg-none text-white border border-button-border rounded-xl absolute bottom-5 py-4 w-[90%] cursor-pointer'>
 				Wyczyść filtry
 			</button>
 		</nav>
